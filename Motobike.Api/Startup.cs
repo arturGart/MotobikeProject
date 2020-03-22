@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Motobike.Api.Middlewares;
 using Motobike.BusinessLogic.Helper;
 
 namespace Motobike.Api
@@ -35,6 +36,8 @@ namespace Motobike.Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseRouting();
 
